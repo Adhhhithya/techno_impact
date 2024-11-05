@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='../static/resultpage.css') }}">
+
+<div class="result-container">
+    <h1>Deepfake Detection Result</h1>
+    <div class="result-box">
+        <div class="result-label {% if prediction == 'Fake' %}fake{% else %}real{% endif %}">
+            {{ prediction }}
+        </div>
+        <div class="score">Predicted Fake Score: {{ score }}%</div>
+    </div>
+</div>
+{% endblock %}

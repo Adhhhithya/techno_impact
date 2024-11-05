@@ -1,0 +1,129 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div id="home" class="section">
+    <h1>Detect Deepfakes with Precision</h1>
+    <p>Empowering you to uncover truth in visual media using cutting-edge AI technology.</p>
+    <a href="{{ url_for('index') }}" class="btn">Get Started</a>
+</div>
+
+<div id="about" class="section">
+    <h2>Overview of features:</h2>
+    <div class="steps-container">
+        <div class="step">
+            <div class="icon">📤</div>
+            <h3>Instant Detection</h3>
+            <p>Upload images and instantly identify whether they are real or manipulated.</p>
+        </div>
+        <div class="step">
+            <div class="icon">🔍</div>
+            <h3>Heat Maps</h3>
+            <p>View heat maps that highlight manipulated areas in detected deepfakes.</p>
+        </div>
+        <div class="step">
+            <div class="icon">🗺️</div>
+            <h3>API Access</h3>
+            <p>Integrate deepfake detection into your own projects with our open API.</p>
+        </div>
+        <div class="step">
+            <div class="icon">✅</div>
+            <h3>User-Friendly</h3>
+            <p>Easy-to-use interface suitable for both developers and everyday users.</p>
+        </div>
+    </div>
+</div>
+
+<div id="how-it-works" class="section">
+    <h2>How Our Tool Works</h2>
+    <div class="steps-container">
+        <div class="step">
+            <div class="icon">📤</div>
+            <h3>1. Upload an Image</h3>
+            <p>Select an image file from your device to check for deepfakes.</p>
+        </div>
+        <div class="step">
+            <div class="icon">🔍</div>
+            <h3>2. AI Analysis</h3>
+            <p>Our AI analyzes the image in seconds for any signs of manipulation.</p>
+        </div>
+        <div class="step">
+            <div class="icon">✅</div>
+            <h3>3. Receive Results</h3>
+            <p>Get immediate feedback with a label indicating whether the image is real or fake.</p>
+        </div>
+        <div class="step">
+            <div class="icon">🗺️</div>
+            <h3>4. View Heat Map</h3>
+            <p>Explore highlighted areas of the image to see where manipulations occurred.</p>
+        </div>
+    </div>
+</div>
+
+<div id="upload" class="section">
+    <h2>Upload Image for Deepfake Detection</h2>
+    <form action="{{ url_for('upload_image') }}" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*">
+        <button type="submit" class="btn">Scan for Deepfake</button>
+    </form>
+</div>
+
+<div id="why-it-matters" class="section">
+    <h2>Why Deepfake Detection Matters</h2>
+    <p>Deepfakes are rapidly spreading misinformation, invading privacy, and compromising security. Our tool empowers users to verify image authenticity, helping combat deception in media, protect personal identities, and build trust in digital content. Reliable detection is essential to a safer, more truthful digital world.</p>
+</div>
+
+<div id="future-goals" class="section">
+    <h2>Future Goals</h2>
+    <p>We aim to enhance detection accuracy, expand our tool to support video analysis, and introduce real-time detection for social media applications. By continuously evolving with the latest in AI technology, we're committed to providing comprehensive deepfake detection solutions that keep pace with emerging threats.</p>
+</div>
+
+<div id="feedback" class="section">
+    <h2>Feedback & Case Studies</h2>
+    <div class="feedback-item">
+        <h3>Journalist</h3>
+        <p>"This tool has been invaluable in helping me verify image sources and maintain credibility in my reporting. It's fast, reliable, and easy to use---an essential asset for today's media landscape!"</p>
+    </div>
+    <div class="feedback-item">
+        <h3>Social Media Moderator</h3>
+        <p>"We've integrated the tool into our moderation workflow, which has significantly reduced the spread of fake content. The heat maps help us quickly review flagged images, allowing our team to focus on genuine issues."</p>
+    </div>
+    <div class="feedback-item">
+        <h3>Developer</h3>
+        <p>"The open API is a fantastic feature! I've embedded it into my app, enabling my users to detect deepfakes on their own. It's powerful, simple to implement, and highly effective."</p>
+    </div>
+</div>
+
+<div id="mission" class="section">
+    <h2>Mission</h2>
+    <p>Our mission is to combat misinformation and help users confidently verify the authenticity of visual media using accessible, advanced AI technology.</p>
+</div>
+
+<div id="contact" class="section">
+    <h2>Contact Us</h2>
+    <div class="social-links">
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+    <div class="contact-info">
+        <div class="contact-item">9696969696</div>
+        <div class="contact-item">codeofduty69@gmail.com</div>
+    </div>
+    <div class="creators">
+        <h3>Developers</h3>
+        <div class="creators-list">
+            <div class="creator-item">
+                <img src="../static/Adhithya-profile.jpg" alt="Adhithya J">
+                <p>Adhithya J</p>
+            </div>
+            <div class="creator-item">
+                <img src="../static/Paul-profile.jpg" alt="K.Israel Paul">
+                <p>K.Israel Paul</p>
+            </div>
+            <div class="creator-item">
+                <img src="../static/Ajay-profile.jpg" alt="Ajay S Vasan">
+                <p>Ajay S Vasan</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
