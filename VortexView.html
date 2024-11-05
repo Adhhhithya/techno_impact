@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VortexView</title>
+  <link rel="stylesheet" href="VortexView.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <h1>VortexView</h1>
+    </div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#why-it-matters">Why It Matters</a></li>
+      <li><a href="#future-goals">Future Goals</a></li>
+      <li><a href="#feedback">Feedback</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div id="home" class="section">
+    <h2>Detect Deepfakes with Precision</h2>
+    <p>Empowering you to uncover truth in visual media using cutting-edge AI technology.</p>
+    <button>Get Started</button>
+  </div>
+
+  <div id="about" class="section">
+    <h2>Overview of features:
+    </h2>
+    <div class="steps-container">
+      <div class="step">
+          <h3>Instant Detection:</h3>
+          <p>Upload images and instantly identify whether they are real or manipulated.</p>
+      </div>
+      <div class="step">
+          <h3>Heat Maps:</h3>
+          <p>View heat maps that highlight manipulated areas in detected deepfakes.</p>
+      </div>
+      <div class="step">
+          <h3>API Access: </h3>
+          <p>Integrate deepfake detection into your own projects with our open API.</p>
+      </div>
+      <div class="step">
+          <h3>User-Friendly:</h3>
+          <p>Easy-to-use interface suitable for both developers and everyday users.</p>
+      </div>
+  </div>
+  </div>
+
+  <div id="how-it-works" class="section">
+    <h2>How Our Tool Works</h2>
+    <div class="steps-container">
+        <div class="step">
+            <div class="icon">📤</div>
+            <h3>1. Upload an Image</h3>
+            <p>Select an image file from your device to check for deepfakes.</p>
+        </div>
+        <div class="step">
+            <div class="icon">🔍</div>
+            <h3>2. AI Analysis</h3>
+            <p>Our AI analyzes the image in seconds for any signs of manipulation.</p>
+        </div>
+        <div class="step">
+            <div class="icon">✅</div>
+            <h3>3. Receive Results</h3>
+            <p>Get immediate feedback with a label indicating whether the image is real or fake.</p>
+        </div>
+        <div class="step">
+            <div class="icon">🗺️</div>
+            <h3>4. View Heat Map</h3>
+            <p>Explore highlighted areas of the image to see where manipulations occurred.</p>
+        </div>
+    </div>
+</div>
+  <div id="upload" class="section">
+    <h2>Upload Image for Deepfake Detection</h2>
+    <form action="/upload" method="post" enctype="multipart/form-data" onsubmit="return validateFile()">
+        <label class="upload-label" for="fileInput">No files chosen</label>
+        <input type="file" id="fileInput" name="image" accept="image/*" required>
+        <p>Max file size: 20 MB</p>
+        <button type="button" onclick="checkSizeAndOpenResultPage()">Scan for Deepfake</button>
+    </form>
+  </div>
+  <div id="why-it-matters" class="section">
+    <h2>Why Deepfake Detection Matters</h2>
+    <p>Deepfakes are rapidly spreading misinformation, invading privacy, and compromising security. Our tool empowers users to verify image authenticity, helping combat deception in media,
+      <br>protect personal identities, and build trust in digital content. Reliable detection is essential to a safer, more truthful digital world</p>
+  </div>
+
+  <div id="future-goals" class="section">
+    <h2>Future Goals</h2>
+    <p>We aim to enhance detection accuracy, expand our tool to support video analysis, and introduce real-time detection for social media applications. 
+      <br> By continuously evolving with the latest in AI technology, we're committed to providing comprehensive deepfake detection solutions that keep pace with emerging threats.</p>
+  </div>
+
+  <div id="feedback" class="section">
+    <h2>Feedback & Case Studies</h2>
+    <p>1.Journalist <br>
+      “This tool has been invaluable in helping me verify image sources and maintain credibility in my reporting. It’s fast, reliable, and easy to use—an essential asset for today’s media landscape!” <br>
+      2.Social Media Moderator <br>
+      “We’ve integrated the tool into our moderation workflow, which has significantly reduced the spread of fake content. The heat maps help us quickly review flagged images, allowing our team to focus on genuine issues.”
+      3.Developer <br>
+      “The open API is a fantastic feature! I’ve embedded it into my app, enabling my users to detect deepfakes on their own. It's powerful, simple to implement, and highly effective.”</p>
+  </div>
+
+  <div id="mission" class="section">
+    <h2>Mission</h2>
+    <p>Our mission is to combat misinformation and help users confidently verify the authenticity of visual media using accessible, advanced AI technology.</p>
+  </div>
+
+    <div id="contact" class="section">
+        <h2>Contact Us</h2>
+        <div class="social-links">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>9696969696</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>codeofduty69@gmail.com</span>
+            </div>
+        </div>
+        <div class="creators">
+            <h3>Developers</h3>
+            <div class="creators-list">
+            <div class="creator-item">
+                <img src="Adhithya-profile.jpg" alt="Adhidhya J">
+                <span>Adhidhya J</span>
+            </div>
+            <div class="creator-item">
+                <img src="Paul-profile.jpg" alt="K.Israel Paul">
+                <span>K.Israel Paul</span>
+            </div>
+            <div class="creator-item">
+                <img src="Ajay-profile.jpg" alt="Ajay S Vasan">
+                <span>Ajay S Vasan</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <footer>
+    <p>&copy; 2024 VortexView. All Rights Reserved.</p>
+  </footer>
+
+  <script src="VortexView.js"></script>
+</body>
+</html>

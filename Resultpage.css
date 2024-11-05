@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+:root {
+    --color-primary: #1A3C40;
+    --color-secondary: #2C5D63;
+    --color-accent: #7EB6B6;
+    --color-text: #E6F3F5;
+    --color-text-dark: #B8D8D8;
+    --color-background: #14292B;
+    --color-card: #1F4649;
+    --color-shadow: rgba(0, 0, 0, 0.2);
+}
+  
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Montserrat', sans-serif;
+}
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+/* NAV */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--color-primary);
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px var(--color-shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+  
+  .logo h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  
+  nav ul li a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    color: var(--color-accent);
+  }
+  
