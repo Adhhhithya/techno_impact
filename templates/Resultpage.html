@@ -1,15 +1,122 @@
-{% extends 'layout.html' %}
+{% extends "layout.html" %}
 
 {% block content %}
-<link rel="stylesheet" href="{{ url_for('static', filename='../static/resultpage.css') }}">
-
-<div class="result-container">
-    <h1>Deepfake Detection Result</h1>
-    <div class="result-box">
-        <div class="result-label {% if prediction == 'Fake' %}fake{% else %}real{% endif %}">
-            {{ prediction }}
+<div class="result-page">
+    <div class="result-container">
+        <h2 class="text-center">Analysis Results</h2>
+        
+        <!-- Result Summary -->
+        <div class="result-summary">
+            <div class="result-status {% if prediction == 'Fake' %}fake{% else %}real{% endif %}">
+                <div class="status-icon">
+                    {% if prediction == 'Fake' %}
+                        <i class="fas fa-exclamation-triangle"></i>
+                    {% else %}
+                        <i class="fas fa-check-circle"></i>
+                    {% endif %}
+                </div>
+                <h3>This image is detected as: <span class="prediction-text">{{ prediction }}</span></h3>
+            </div>
+            
+            <!-- Confidence Score -->
+            <div class="confidence-score">
+                <div class="score-gauge">
+                    <div class="score-fill" style="width: {{ score }}%"></div>
+                </div>
+                <p class="score-text">Confidence Score: <span class="prediction-score">{{ score }}%</span></p>
+            </div>
         </div>
-        <div class="score">Predicted Fake Score: {{ score }}%</div>
+
+        <!-- Image Analysis -->
+        <div class="analysis-section">
+            <div class="image-comparison">
+                <div class="original-image">
+                    <h4>Analyzed Image</h4>
+                    <img src="{{ url_for('static', filename=image_path) }}" alt="Analyzed Image" class="result-image">
+                </div>
+                
+                <div class="analysis-details">
+                    <h4>Analysis Details</h4>
+                    <div class="detail-items">
+                        <div class="detail-item">
+                            <span class="detail-label">Classification:</span>
+                            <span class="detail-value {% if prediction == 'Fake' %}fake{% else %}real{% endif %}">
+                                {{ prediction }}
+                            </span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Confidence Level:</span>
+                            <span class="detail-value">{{ score }}%</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Analysis Time:</span>
+                            <span class="detail-value">{{ '%0.2f'|format(analysis_time|default(0.5)) }} seconds</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommendations -->
+        <div class="recommendations">
+            <h4>What does this mean?</h4>
+            {% if prediction == 'Fake' %}
+            <div class="recommendation-content fake-recommendations">
+                <p>This image has been identified as potentially manipulated. Here's what you should know:</p>
+                <ul>
+                    <li>The analysis suggests this image has been artificially modified or generated</li>
+                    <li>The confidence score indicates the likelihood of manipulation</li>
+                    <li>Exercise caution when sharing or using this image</li>
+                </ul>
+            </div>
+            {% else %}
+            <div class="recommendation-content real-recommendations">
+                <p>This image appears to be authentic. Here's what you should know:</p>
+                <ul>
+                    <li>Our analysis suggests this is a genuine, unmanipulated image</li>
+                    <li>The confidence score shows the likelihood of authenticity</li>
+                    <li>As with all AI analysis, results should be considered alongside context</li>
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <a href="{{ url_for('index') }}#upload" class="btn primary-btn">
+                <i class="fas fa-camera"></i> Analyze Another Image
+            </a>
+            <button onclick="window.print()" class="btn secondary-btn">
+                <i class="fas fa-print"></i> Save Report
+            </button>
+            {% if 'user' in session %}
+            <button onclick="shareResults()" class="btn accent-btn">
+                <i class="fas fa-share-alt"></i> Share Results
+            </button>
+            {% endif %}
+        </div>
     </div>
 </div>
+
+<!-- Add this to your existing script.js or include it here -->
+<script>
+function shareResults() {
+    // Create the share text
+    const shareText = `VortexView Analysis Result:\nImage Classification: ${prediction}\nConfidence Score: ${score}%`;
+    
+    // Check if the Web Share API is available
+    if (navigator.share) {
+        navigator.share({
+            title: 'VortexView Analysis Results',
+            text: shareText,
+            url: window.location.href
+        })
+        .then(() => console.log('Successful share'))
+        .catch((error) => console.log('Error sharing:', error));
+    } else {
+        // Fallback for browsers that don't support the Web Share API
+        alert('Share functionality is not supported in this browser. You can copy the URL manually.');
+    }
+}
+</script>
 {% endblock %}
